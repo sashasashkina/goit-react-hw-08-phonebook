@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formGroup {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.formGroup label {
+  width: 90px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: plum;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+}
+.button:hover,
+.button:focus {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.342);
+}
