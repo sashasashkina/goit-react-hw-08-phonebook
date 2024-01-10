@@ -42,12 +42,12 @@ class Phonebook extends Component {
           <input
             className={css.input}
             id={nameId}
-            placeholder="Name"
+            placeholder="Name contacts"
             name="name"
             type="text"
             required
             value={name}
-            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            // pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             onChange={handleChange}
           />
         </div>
@@ -58,12 +58,12 @@ class Phonebook extends Component {
           <input
             className={css.input}
             id={numberId}
-            placeholder="Number"
+            placeholder="Number contacts"
             type="text"
             name="number"
             required
             value={number}
-            pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+            // pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
             onChange={handleChange}
           />
         </div>

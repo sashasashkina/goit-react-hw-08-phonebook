@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import css from './MyContacts.module.css';
 import { nanoid } from 'nanoid';
-import Contacts from 'components/Contacts/Contacts';
+import { ContactList } from 'components/ContactList/ContactList';
 import Phonebook from 'components/Phonebook/Phonebook';
 
 class MyContacts extends Component {
@@ -14,6 +14,22 @@ class MyContacts extends Component {
     ],
     filter: '',
   };
+
+  componentDidMount() {
+    const contacts = JSON.parse(localStorage.getItem('my-contacts'));
+    if (contacts?.length) {
+      this.setState({
+        contacts,
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (prevState.contacts.length !== contacts.length) {
+      localStorage.setItem('my-contacts', JSON.stringify(this.state.contacts));
+    }
+  }
 
   isDuplicate({ name, number }) {
     const { contacts } = this.state;
@@ -97,7 +113,7 @@ class MyContacts extends Component {
             name="filter"
             placeholder="Find contacts by name"
           />
-          <Contacts items={contacts} deleteContact={deleteContact} />
+          <ContactList contacts={contacts} deleteContact={deleteContact} />
         </div>
       </div>
     );
