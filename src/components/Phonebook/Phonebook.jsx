@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import css from './Phonebook.module.css';
-import { useState } from 'react';
 
 const INITIAL_STATE = {
   name: '',
