@@ -13,7 +13,7 @@ const INITIAL_STATE = {
 const Phonebook = () => {
   const dispatch = useDispatch();
 
-  const { contacts } = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts);
   const nameId = nanoid();
   const numberId = nanoid();
   const [value, setValue] = useState({ ...INITIAL_STATE });
