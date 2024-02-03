@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import css from './Phonebook.module.css';
+//  import { useDispatch, useSelector } from 'react-redux';
+// import { addContact } from '../../redux/Contacts/contacts-slice';
 
 const INITIAL_STATE = {
   name: '',
@@ -8,6 +10,9 @@ const INITIAL_STATE = {
 };
 
 const Phonebook = ({ onSubmit }) => {
+  // const dispatch = useDispatch();
+
+  // const { contacts } = useSelector(getFilteredContacts);
   const nameId = nanoid();
   const numberId = nanoid();
   const [value, setValue] = useState({ ...INITIAL_STATE });
