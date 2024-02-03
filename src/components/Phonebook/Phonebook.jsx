@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import css from './Phonebook.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/Contacts/contacts-slice';
-import { getFilteredContacts } from '../../redux/Contacts/contacts-selectors';
+// import { getFilteredContacts } from '../../redux/Contacts/contacts-selectors';
 
 const INITIAL_STATE = {
   name: '',
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
 const Phonebook = () => {
   const dispatch = useDispatch();
 
-  const { contacts } = useSelector(getFilteredContacts);
+  const { contacts } = useSelector(state => state.contacts);
   const nameId = nanoid();
   const numberId = nanoid();
   const [value, setValue] = useState({ ...INITIAL_STATE });
