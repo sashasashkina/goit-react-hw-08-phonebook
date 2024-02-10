@@ -1,7 +1,8 @@
-export const getAllContacts = store => store.contacts;
+export const selectAllContacts = store => store.contacts;
 
-export const getFilteredContacts = store => {
+export const selectFilteredContacts = store => {
   const { contacts, filter } = store;
+
   const normalizedFilter = filter.toLocaleLowerCase();
 
   const filteredContacts = contacts.filter(({ name, number }) => {

@@ -1,28 +1,62 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { nanoid } from 'nanoid';
+const initialState = {
+  items: [],
+  isLoading: false,
+  error: null,
+};
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: [],
+  initialState,
   reducers: {
-    addContact: {
-      reducer: (state, { payload }) => {
-        state.push(payload);
-      },
-      prepare: data => {
-        return {
-          payload: {
-            id: nanoid(),
-            ...data,
-          },
-        };
-      },
+    fetContactsLoading: state => {
+      state.isLoading = true;
     },
-    deleteContact: (state, { payload }) =>
-      state.filter(item => item.id !== payload),
+    fetchContactsSuccess: (state, { payload }) => {
+      state.isLoading = false;
+      state.items = payload;
+    },
+    fetchContactsError: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
+    addContactsLoading: state => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    addContactsSuccess: (state, { payload }) => {
+      state.isLoading = false;
+      state.items.push(payload);
+    },
+    addContactsError: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
+    deleteContactsLoading: state => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    deleteContactsLSuccess: (state, { payload }) => {
+      state.isLoading = false;
+      state.items = state.items.filter(({ id }) => id !== payload);
+    },
+    deleteContactsError: (state, { payload }) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
   },
 });
 
-export const { addContact, deleteContact } = contactsSlice.actions;
+export const {
+  fetContactsLoading,
+  fetchContactsSuccess,
+  fetchContactsError,
+  addContactsLoading,
+  addContactsSuccess,
+  addContactsError,
+  deleteContactsLoading,
+  deleteContactsLSuccess,
+  deleteContactsError,
+} = contactsSlice.actions;
 export default contactsSlice.reducer;
