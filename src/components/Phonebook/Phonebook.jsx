@@ -7,27 +7,27 @@ import { addContacts } from '../../redux/Contacts/contacts-operations';
 
 const INITIAL_STATE = {
   name: '',
-  number: '',
+  phone: '',
 };
 
 const Phonebook = () => {
   const dispatch = useDispatch();
 
-  const items = useSelector(state => state.contacts);
+  const items = useSelector(state => state.contacts.items);
   const nameId = nanoid();
-  const numberId = nanoid();
+  const phoneId = nanoid();
   const [value, setValue] = useState({ ...INITIAL_STATE });
 
-  const isDuplicate = ({ name, number }) => {
+  const isDuplicate = ({ name, phone }) => {
     const normalizedName = name.toLowerCase();
-    const normalizedNumber = number.toLowerCase();
+    const normalizedPhone = phone.toLowerCase();
 
     const duplicate = items.find(item => {
       const normalizedCurrentName = item.name.toLowerCase();
-      const normalizedCurrentNumber = item.number.toLowerCase();
+      const normalizedCurrentPhone = item.phone.toLowerCase();
       return (
         normalizedCurrentName === normalizedName &&
-        normalizedCurrentNumber === normalizedNumber
+        normalizedCurrentPhone === normalizedPhone
       );
     });
     return Boolean(duplicate);
@@ -55,7 +55,7 @@ const Phonebook = () => {
     setValue({ ...INITIAL_STATE });
   };
 
-  const { name, number } = value;
+  const { name, phone } = value;
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <div className={css.formGroup}>
@@ -71,17 +71,17 @@ const Phonebook = () => {
         />
       </div>
       <div className={css.formGroup}>
-        <label className={css.title} htmlFor={numberId}>
+        <label className={css.title} htmlFor={phoneId}>
           Number
         </label>
         <input
           className={css.input}
-          id={numberId}
+          id={phoneId}
           placeholder="Number contacts"
           type="text"
-          name="number"
+          name="phone"
           required
-          value={number}
+          value={phone}
           onChange={handleChange}
         />
       </div>

@@ -7,9 +7,9 @@ export const ContactList = () => {
   const items = useSelector(selectFilteredContacts);
 
   const dispatch = useDispatch();
-  const elements = items.map(({ id, name, number }) => (
+  const elements = items.map(({ id, name, phone }) => (
     <li className={css.list} key={id}>
-      {name}:{number}
+      {name}:{phone}
       <button
         className={css.button}
         onClick={() => dispatch(deleteContacts(id))}

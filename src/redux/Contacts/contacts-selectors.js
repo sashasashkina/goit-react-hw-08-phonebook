@@ -5,13 +5,10 @@ export const selectFilteredContacts = store => {
 
   const normalizedFilter = filter.toLocaleLowerCase();
 
-  const filteredContacts = contacts.filter(({ name, number }) => {
-    const normalizedName = name.toLocaleLowerCase();
-    const normalizedNumber = number.toLocaleLowerCase();
-    return (
-      normalizedName.includes(normalizedFilter) ||
-      normalizedNumber.includes(normalizedFilter)
-    );
+  const filteredContacts = contacts.items.filter(({ name }) => {
+    const normalizedName = name;
+
+    return normalizedName.includes(normalizedFilter);
   });
 
   return filteredContacts;
