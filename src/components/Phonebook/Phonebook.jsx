@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import css from './Phonebook.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectFilteredContacts } from '../../redux/Contacts/contacts-selectors';
+import { useDispatch } from 'react-redux';
 
 import { addContacts } from '../../redux/Contacts/contacts-operations';
 
@@ -14,31 +13,11 @@ const INITIAL_STATE = {
 const Phonebook = () => {
   const dispatch = useDispatch();
 
-  const items = useSelector(selectFilteredContacts);
-  console.log(items);
   const nameId = nanoid();
   const phoneId = nanoid();
   const [value, setValue] = useState({ ...INITIAL_STATE });
 
-  // const isDuplicate = ({ name, phone }) => {
-  //   const normalizedName = name.toLowerCase();
-  //   const normalizedPhone = phone.toLowerCase();
-
-  //   const duplicate = items.find(item => {
-  //     const normalizedCurrentName = item.name.toLowerCase();
-  //     const normalizedCurrentPhone = item.phone.toLowerCase();
-  //     return (
-  //       normalizedCurrentName === normalizedName &&
-  //       normalizedCurrentPhone === normalizedPhone
-  //     );
-  //   });
-  //   return Boolean(duplicate);
-  // };
   const onAddContact = data => {
-    // if (isDuplicate(data)) {
-    //   return alert(`${data.name} is already in contacts.`);
-    // }
-
     dispatch(addContacts(data));
   };
 
