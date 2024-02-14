@@ -1,9 +1,10 @@
-import MyContacts from 'components/MyContacts/MyContacts';
+// import MyContacts from 'components/MyContacts/MyContacts';
+import AppRoutes from './AppRoutes';
 
 export function App() {
   return (
     <div>
-      <MyContacts />
+      <AppRoutes />
     </div>
   );
 }
