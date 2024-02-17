@@ -1,14 +1,13 @@
 import { useState, useId } from 'react';
 // import { nanoid } from 'nanoid';
-import css from './RegisterForm.module.css';
+import css from './LoginForm.module.css';
 
 const INITIAL_STATE = {
-  name: '',
   email: '',
   password: '',
 };
 
-const RegisterForm = ({ onSubmit }) => {
+const LoginForm = ({ onSubmit }) => {
   const [value, setValue] = useState({ ...INITIAL_STATE });
 
   const handleChange = ({ target }) => {
@@ -20,6 +19,7 @@ const RegisterForm = ({ onSubmit }) => {
     e.preventDefault();
     onSubmit({ ...value });
     console.log(value);
+
     reset();
   };
 
@@ -30,24 +30,14 @@ const RegisterForm = ({ onSubmit }) => {
   //   const nameId = useMemo(() => nanoid(), []);
   //   const emailId = useMemo(() => nanoid(), []);
   //     const passwordId = useMemo(() => nanoid(), []);
-  const nameId = useId();
+
   const emailId = useId();
   const passwordId = useId();
 
-  const { name, email, password } = value;
+  const { email, password } = value;
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={css.block}>
-        <label htmlFor={nameId}> Name:</label>
-        <input
-          value={name}
-          onChange={handleChange}
-          name="name"
-          id={nameId}
-          required
-        />
-      </div>
       <div className={css.block}>
         <label htmlFor={emailId}> Email:</label>
         <input
@@ -70,8 +60,8 @@ const RegisterForm = ({ onSubmit }) => {
           required
         />
       </div>
-      <button type="submit">Register</button>
+      <button type="submit">Login</button>
     </form>
   );
 };
-export default RegisterForm;
+export default LoginForm;

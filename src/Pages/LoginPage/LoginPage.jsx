@@ -1,9 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import RegisterForm from '../../components/RegisterForm/RegisterForm';
-
-import { signup } from '../../redux/auth/auth-operations';
+import { login } from '../../redux/auth/auth-operations';
 
 import {
   selectAuthLoading,
@@ -11,27 +9,29 @@ import {
   selectIsLogin,
 } from '../../redux/auth/auth-selectors';
 
-const RegisterPage = () => {
+import LoginForm from '../../components/LoginForm/LoginForm';
+
+const LoginPage = () => {
   const authLoading = useSelector(selectAuthLoading);
   const authError = useSelector(selectAuthError);
   const isLogin = useSelector(selectIsLogin);
 
   const dispatch = useDispatch();
 
-  const handleSignup = data => {
-    dispatch(signup(data));
+  const handleLogin = data => {
+    dispatch(login(data));
   };
 
   if (isLogin) {
     return <Navigate to="/my-contacts" />;
   }
   return (
-    <main>
-      <h1>Please Sing Up</h1>
-      {authLoading && <p>....Register in progress</p>}
-      <RegisterForm onSubmit={handleSignup} />
+    <div>
+      <h1>Login page</h1>
+      {authLoading && <p>....Login in progress</p>}
+      <LoginForm onSubmit={handleLogin} />
       {authError && <p style={{ color: 'red' }}>{authError}</p>}
-    </main>
+    </div>
   );
 };
-export default RegisterPage;
+export default LoginPage;
