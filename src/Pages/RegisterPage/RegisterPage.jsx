@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
@@ -8,13 +8,13 @@ import { signup } from '../../redux/auth/auth-operations';
 import {
   selectAuthLoading,
   selectAuthError,
-  selectIsLogin,
 } from '../../redux/auth/auth-selectors';
 
 const RegisterPage = () => {
   const authLoading = useSelector(selectAuthLoading);
   const authError = useSelector(selectAuthError);
-  const isLogin = useSelector(selectIsLogin);
+
+  // const isLogin = useSelector(selectIsLogin);
 
   const dispatch = useDispatch();
 
@@ -22,9 +22,9 @@ const RegisterPage = () => {
     dispatch(signup(data));
   };
 
-  if (isLogin) {
-    return <Navigate to="/my-contacts" />;
-  }
+  // if (isLogin) {
+  //   return <Navigate to="/my-contacts" />;
+  // }
   return (
     <main>
       <h1>Please Sing Up</h1>

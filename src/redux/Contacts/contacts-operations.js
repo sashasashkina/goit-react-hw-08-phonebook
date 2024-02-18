@@ -3,27 +3,15 @@ import * as api from '../../api/api';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
-  async (_, thunkAPI) => {
+  async (_, { rejectWithValue }) => {
     try {
       const data = await api.requestFetchContacts();
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
-// export const fetchContacts = () => {
-//   const func = async dispatch => {
-//     try {
-//       dispatch(fetContactsLoading());
-//       const data = await api.requestFetchContacts();
-//       dispatch(fetchContactsSuccess(data));
-//     } catch (error) {
-//       dispatch(fetchContactsError(error.message));
-//     }
-//   };
-//   return func;
-// };
 
 export const addContacts = createAsyncThunk(
   'contacts/add',
@@ -56,18 +44,7 @@ export const addContacts = createAsyncThunk(
     },
   }
 );
-// export const addContacts = body => {
-//   const func = async dispatch => {
-//     try {
-//       dispatch(addContactsLoading());
-//       const data = await api.requestAddContacts(body);
-//       dispatch(addContactsSuccess(data));
-//     } catch (error) {
-//       dispatch(addContactsError(error.message));
-//     }
-//   };
-//   return func;
-// };
+
 export const deleteContacts = createAsyncThunk(
   'contacts/delete',
   async (id, { rejectWithValue }) => {
@@ -79,15 +56,3 @@ export const deleteContacts = createAsyncThunk(
     }
   }
 );
-// export const deleteContacts = id => {
-//   const func = async dispatch => {
-//     try {
-//       dispatch(deleteContactsLoading());
-//       await api.requestDeleteContacts(id);
-//       dispatch(deleteContactsLSuccess(id));
-//     } catch (error) {
-//       dispatch(deleteContactsError(error.message));
-//     }
-//   };
-//   return func;
-// };

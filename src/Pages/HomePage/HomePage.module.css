@@ -1,0 +1,23 @@
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: plum;
+  font-size: 25px;
+  margin-bottom: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+
+  margin-top: 200px;
+  line-height: 1.5;
+  margin-left: 10px;
+}
+/* .image-container {
+  background-image: url('../../Photo/fotophone.jpg');
+} */

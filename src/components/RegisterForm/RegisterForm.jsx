@@ -19,7 +19,7 @@ const RegisterForm = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit({ ...value });
-    console.log(value);
+
     reset();
   };
 
