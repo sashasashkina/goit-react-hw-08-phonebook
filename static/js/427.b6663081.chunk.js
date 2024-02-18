@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[427],{7427:function(e,t,n){n.r(t),n.d(t,{default:function(){return o}});var r="HomePage_title__kXwYR",c=n(184),o=function(){return(0,c.jsx)("div",{children:(0,c.jsxs)("h1",{className:r,children:["Welcome to my site! ",(0,c.jsx)("br",{}),"Convenient telephone contact site! ",(0,c.jsx)("br",{}),"Good luck!",(0,c.jsx)("br",{})]})})}}}]);
+//# sourceMappingURL=427.b6663081.chunk.js.map
