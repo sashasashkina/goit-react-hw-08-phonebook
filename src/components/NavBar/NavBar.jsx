@@ -11,7 +11,9 @@ const NavBar = () => {
   const isLogin = useSelector(selectIsLogin);
   return (
     <div className={css.navbar}>
-      <Link to="/"> Logo</Link>
+      <Link className={css.img} to="/">
+        Logo
+      </Link>
       <MainMenu />
       {isLogin ? <NavbarUser /> : <NavbarAuth />}
     </div>

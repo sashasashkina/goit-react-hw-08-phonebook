@@ -24,14 +24,14 @@ export const addContacts = createAsyncThunk(
     }
   },
   {
-    condition: ({ name, phone }, { getState }) => {
+    condition: ({ name, number }, { getState }) => {
       const { contacts } = getState();
       const normalizedName = name.toLowerCase();
-      const normalizedPhone = phone.toLowerCase();
+      const normalizedPhone = number.toLowerCase();
 
       const duplicate = contacts.items.find(item => {
         const normalizedCurrentName = item.name.toLowerCase();
-        const normalizedCurrentPhone = item.phone.toLowerCase();
+        const normalizedCurrentPhone = item.number.toLowerCase();
         return (
           normalizedCurrentName === normalizedName &&
           normalizedCurrentPhone === normalizedPhone

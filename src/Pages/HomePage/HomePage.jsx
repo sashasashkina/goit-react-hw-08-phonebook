@@ -6,7 +6,7 @@
 import css from './HomePage.module.css';
 const HomePage = () => {
   return (
-    <div className={`'container' ${css.hero}`}>
+    <div>
       <h1 className={css.title}>
         Welcome to my site! <br />
         Convenient telephone contact site! <br />

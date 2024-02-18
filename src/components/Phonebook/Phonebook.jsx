@@ -7,7 +7,7 @@ import { addContacts } from '../../redux/Contacts/contacts-operations';
 
 const INITIAL_STATE = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 const Phonebook = () => {
@@ -36,7 +36,7 @@ const Phonebook = () => {
     setValue({ ...INITIAL_STATE });
   };
 
-  const { name, phone } = value;
+  const { name, number } = value;
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <div className={css.formGroup}>
@@ -60,9 +60,9 @@ const Phonebook = () => {
           id={phoneId}
           placeholder="Number contacts"
           type="text"
-          name="phone"
+          name="number"
           required
-          value={phone}
+          value={number}
           onChange={handleChange}
         />
       </div>
